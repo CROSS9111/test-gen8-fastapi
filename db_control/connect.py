@@ -2,7 +2,7 @@
 from sqlalchemy import create_engine
 import os
 import tempfile
-# import atexit
+import atexit
 from dotenv import load_dotenv
 
 load_dotenv(override=True)
@@ -43,10 +43,10 @@ engine = create_engine(
     }
 )
 
-# # 一時ファイル削除の登録
-# def cleanup_temp_file(path):
-#     if os.path.exists(path):
-#         os.remove(path)
+# 一時ファイル削除の登録
+def cleanup_temp_file(path):
+    if os.path.exists(path):
+        os.remove(path)
 
-# # Python正常終了時に一時ファイルを削除
-# atexit.register(cleanup_temp_file, temp_pem_path)
+# Python正常終了時に一時ファイルを削除
+atexit.register(cleanup_temp_file, temp_pem_path)
