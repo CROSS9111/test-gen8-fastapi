@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 # from sqlalchemy import  text
 from pydantic import BaseModel
 # from datetime import datetime
-# from typing import List
+from typing import List
 # from sqlalchemy.orm import sessionmaker
 # from db_control.connect import engine, DATABASE_URL, pem_content
 from db_control.connect import DATABASE_URL, pem_content
