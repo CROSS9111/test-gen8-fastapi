@@ -1,7 +1,7 @@
 # import platform
 from sqlalchemy import create_engine
 import os
-# import tempfile
+import tempfile
 # import atexit
 from dotenv import load_dotenv
 
@@ -23,10 +23,10 @@ if pem_content is None:
 
 pem_content = pem_content.replace("\\n", "\n").replace("\\", "")
 
-# # 一時ファイル作成
-# with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix=".pem") as temp_pem:
-#     temp_pem.write(pem_content)
-#     temp_pem_path = temp_pem.name
+# 一時ファイル作成
+with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix=".pem") as temp_pem:
+    temp_pem.write(pem_content)
+    temp_pem_path = temp_pem.name
 
 # with open(temp_pem_path, "r") as temp_pem:
 #     print("=====Temporary certificate file content:=====")
