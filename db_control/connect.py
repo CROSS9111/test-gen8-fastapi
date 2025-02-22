@@ -28,12 +28,12 @@ with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix=".pem") as temp_
     temp_pem.write(pem_content)
     temp_pem_path = temp_pem.name
 
-# with open(temp_pem_path, "r") as temp_pem:
-#     print("=====Temporary certificate file content:=====")
-#     print(temp_pem_path)
-#     # print(temp_pem.read())
+with open(temp_pem_path, "r") as temp_pem:
+    print("=====Temporary certificate file content:=====")
+    print(temp_pem_path)
+    # print(temp_pem.read())
 
-# # データベース接続設定
+# データベース接続設定
 # engine = create_engine(
 #     DATABASE_URL, # type: ignore
 #     connect_args={
