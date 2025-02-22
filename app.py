@@ -1,12 +1,11 @@
 from fastapi import FastAPI, HTTPException
 # import sqlite3
-# from sqlalchemy import  text
+from sqlalchemy import  text
 from pydantic import BaseModel
 # from datetime import datetime
 from typing import List
-# from sqlalchemy.orm import sessionmaker
-# from db_control.connect import engine
-from db_control.connect import DATABASE_URL, pem_content
+from sqlalchemy.orm import sessionmaker
+from db_control.connect import engine, DATABASE_URL, pem_content
 
 app = FastAPI()
 
@@ -45,7 +44,7 @@ def read_root():
 def read_env():
     return {"DATABASE_URL": DATABASE_URL, "SSL_CA_STR": pem_content}
 
-# # 商品検索API
+# 商品検索API
 # @app.get("/product/{code}")
 # def get_product(code: str):
 #     # セッションの構築
@@ -58,12 +57,6 @@ def read_env():
 #     )
 #     # 最初の行を取得
 #     product = result.fetchone()
-    
-#     # conn = sqlite3.connect("pos_app.db")
-#     # cursor = conn.cursor()
-#     # cursor.execute("SELECT id, name, price FROM product_master WHERE code = ?", (code,))
-#     # product = cursor.fetchone()
-#     # conn.close()
 
 #     # セッションを閉じる
 #     session.close()

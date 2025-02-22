@@ -1,17 +1,17 @@
 # import platform
-# from sqlalchemy import create_engine
+from sqlalchemy import create_engine
 import os
-# import tempfile
-# import atexit
+import tempfile
+import atexit
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 # CONNECT = os.getenv("CONNECT_MODE")
 DATABASE_URL = os.getenv("DB_URL")
 pem_content = os.getenv("SSL_CA_STR")
 
 
-
+# test
 print(DATABASE_URL)
 print(pem_content)
 
