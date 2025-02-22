@@ -1,10 +1,10 @@
 from fastapi import FastAPI, HTTPException
 # import sqlite3
-# from sqlalchemy import  text
+from sqlalchemy import text
 from pydantic import BaseModel
 # from datetime import datetime
 from typing import List
-# from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker
 from db_control.connect import engine, DATABASE_URL, pem_content
 # from db_control.connect import DATABASE_URL, pem_content
 
@@ -47,26 +47,26 @@ def read_env():
     return {"DATABASE_URL": DATABASE_URL, "SSL_CA_STR": pem_content}
 
 # 商品検索API
-# @app.get("/product/{code}")
-# def get_product(code: str):
-#     # セッションの構築
-#     Session = sessionmaker(bind=engine)
-#     session = Session()
-#     # SQLを直接実行
-#     result = session.execute(
-#     text("SELECT PRD_ID, NAME, PRICE FROM m_product_sou WHERE CODE = :code"), 
-#         {"code": code}  
-#     )
-#     # 最初の行を取得
-#     product = result.fetchone()
+@app.get("/product/{code}")
+def get_product(code: str):
+    # セッションの構築
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    # SQLを直接実行
+    result = session.execute(
+    text("SELECT PRD_ID, NAME, PRICE FROM m_product_sou WHERE CODE = :code"), 
+        {"code": code}  
+    )
+    # 最初の行を取得
+    product = result.fetchone()
 
-#     # セッションを閉じる
-#     session.close()
-#     print(product)
-#     if product:
-#         return {"id": product[0], "name": product[1], "price": product[2]}
-#     else:
-#         raise HTTPException(status_code=404, detail="商品が見つかりません")
+    # セッションを閉じる
+    session.close()
+    print(product)
+    if product:
+        return {"id": product[0], "name": product[1], "price": product[2]}
+    else:
+        raise HTTPException(status_code=404, detail="商品が見つかりません")
     
     
 
