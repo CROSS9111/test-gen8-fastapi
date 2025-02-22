@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 # import sqlite3
-from sqlalchemy import  text
+from sqlalchemy import text
 from pydantic import BaseModel
 # from datetime import datetime
 from typing import List
