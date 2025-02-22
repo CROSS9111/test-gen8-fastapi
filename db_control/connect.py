@@ -34,14 +34,14 @@ with open(temp_pem_path, "r") as temp_pem:
     # print(temp_pem.read())
 
 # データベース接続設定
-# engine = create_engine(
-#     DATABASE_URL, # type: ignore
-#     connect_args={
-#         "ssl": {
-#             "ca": temp_pem_path
-#         }
-#     }
-# )
+engine = create_engine(
+    DATABASE_URL, # type: ignore
+    connect_args={
+        "ssl": {
+            "ca": temp_pem_path
+        }
+    }
+)
 
 # # 一時ファイル削除の登録
 # def cleanup_temp_file(path):
