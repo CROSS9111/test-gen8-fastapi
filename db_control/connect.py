@@ -17,11 +17,11 @@ pem_content = os.getenv("SSL_CA_STR")
 print(DATABASE_URL)
 print(pem_content)
 
-# # SSL証明書内容の確認と処理
-# if pem_content is None:
-#     raise ValueError("SSL_CA_CERT is not set in environment variables.")
+# SSL証明書内容の確認と処理
+if pem_content is None:
+    raise ValueError("SSL_CA_CERT is not set in environment variables.")
 
-# pem_content = pem_content.replace("\\n", "\n").replace("\\", "")
+pem_content = pem_content.replace("\\n", "\n").replace("\\", "")
 
 # # 一時ファイル作成
 # with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix=".pem") as temp_pem:
