@@ -14,8 +14,8 @@ pem_content = os.getenv("SSL_CA_STR")
 
 
 # test
-print(DATABASE_URL)
-print(pem_content)
+# print(DATABASE_URL)
+# print(pem_content)
 
 # SSL証明書内容の確認と処理
 if pem_content is None:
