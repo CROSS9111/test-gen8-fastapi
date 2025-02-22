@@ -6,6 +6,7 @@ from pydantic import BaseModel
 from typing import List
 # from sqlalchemy.orm import sessionmaker
 # from db_control.connect import engine
+from db_control.connect import DATABASE_URL, pem_content
 
 app = FastAPI()
 
@@ -39,6 +40,10 @@ class PurchaseRequest(BaseModel):
 @app.get("/")
 def read_root():
     return {"message": "Welcome to POS API"}
+
+@app.get("/env")
+def read_env():
+    return {"DATABASE_URL": DATABASE_URL, "SSL_CA_STR": pem_content}
 
 # # 商品検索API
 # @app.get("/product/{code}")
